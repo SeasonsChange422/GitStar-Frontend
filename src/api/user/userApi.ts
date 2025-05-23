@@ -4,7 +4,8 @@
  * @Description: 
  * @FilePath: \GitStar-Frontend\src\api\user\userApi.ts
  */
-import request from "../../utils/request";
+import request from "@/utils/request";
+import {LoginForm,RegisterForm,SendCodeForm} from '@/api/user/userType'
 export function login(form:LoginForm){
     return request({
         url: "/user/login",
@@ -21,11 +22,13 @@ export function register(form:RegisterForm){
     })
 }
 
-export function sendCode(form:SendCodeForm){
+export function sendCode(form:String){
     return request({
         url: "/user/sendVerifyCode",
-        data: form,
-        method: 'post'
+        params: {
+            email:form
+        },
+        method: 'get'
     })
 }
 
@@ -35,4 +38,20 @@ export function getUserInfo(){
         method: 'get'
     })
 }
+export function updateUserInfo(form) {
+    return request({
+        url: "/user/updateUserInfo",
+        data: form,
+        method: 'post'
+    })
+}
 
+export function getUserById(form:String){
+    return request({
+        url: "/user/getUserById",
+        params: {
+            userId:form
+        },
+        method: 'get'
+    })
+}

@@ -21,6 +21,8 @@ request.interceptors.request.use(config => {
     }
     if(storage.get('token')) {
         config.headers.token = storage.get('token')
+    } else {
+        config.headers.token = ''
     }
 
     return config
@@ -30,11 +32,11 @@ request.interceptors.response.use(response => {
     const res = response.data
     if (res.code == '401' ) {
         storage.remove('token')
-        router.push('/?login=ture')
+        router.push('/login')
     }
     if(res.msg == '用户未登录'){
         storage.remove('token')
-        router.push('/?login=ture')
+        router.push('/login')
     }
     // 如果接口正常，直接返回数据
 

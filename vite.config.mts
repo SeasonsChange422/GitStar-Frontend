@@ -71,11 +71,22 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
+      "/api/fileApi":{
+        target: "http://localhost:8090",
+        changeOrigin:true,
+         rewrite: (path) => path.replace(/^\/api\/fileApi/, "/"),
+      },
       "/api":{
         target: "http://localhost:8080/",
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/api/, "/"),
-      }
+      },
+      "/fileApi":{
+        target: "http://localhost:8090",
+        changeOrigin:true,
+         rewrite: (path) => path.replace(/^\/fileApi/, "/"),
+      },
+      
     },
   },
 })

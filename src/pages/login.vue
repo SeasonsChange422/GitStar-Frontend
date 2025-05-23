@@ -11,22 +11,25 @@
     </div>
     <div class="loginContainer">
         <div class="loginContainer-center">
-            <h1 class="title">Sign in to GitHub</h1>
+            <h1 class="title">登录GitStar</h1>
             <div class="login">
                 <label class="label">
-                    Username or email address
+                    用户名或邮箱
                 </label>
                 <br>
                 <input class="input" v-model="loginForm.account">
                 <br>
                 <label class="label">
-                    Password
+                    密码
                 </label>
                 <br>
                 <input class="input" v-model="loginForm.password">
                 <br>
+                <div class="link" @click="router.push('/register')">
+                    注册
+                </div>
                 <button class="button" @click="loginFunction()">
-                    Sign in
+                    登录
                 </button>
             </div>
         </div>
@@ -37,10 +40,11 @@ import { ref } from 'vue';
 import { login, getUserInfo } from '@/api/user/userApi'
 import { LoginForm } from '@/api/user/userType'
 import { storage } from '@/utils/storage'
+import { message } from '@/utils/message'
 import router from '@/router'
 const loginForm = ref<LoginForm>({
-    account: '',
-    password: ''
+    account: 'SeasonsChange',
+    password: 'DHX20030805'
 })
 const loginFunction = () => {
     login(loginForm.value).then((res: any) => {
@@ -48,13 +52,14 @@ const loginFunction = () => {
             storage.set('token', res.data)
             getUserInfo().then((res: any) => {
                 if (res.code == 200) {
-                    storage.set('user',res.data)
+                    storage.set('user', res.data)
                     setTimeout(() => {
-                        router.push('./')
+                        router.push('./home')
                     }, 500)
                 }
             })
-
+        } else {
+            message.error(res.msg)
         }
     })
 }
@@ -92,11 +97,11 @@ const loginFunction = () => {
     line-height: 36px;
     font-weight: 300;
     letter-spacing: -0.5px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 .login {
-    height: 220px;
+    min-height: 220px;
     margin: 16px 0 0;
     padding: 16px;
     background-color: #F6F8FA;
@@ -107,8 +112,8 @@ const loginFunction = () => {
 .label {
     height: 21px;
     margin: 0 0 8px;
-    font-size: 13px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 .input {
@@ -120,8 +125,15 @@ const loginFunction = () => {
     border: #D1D9E0 1px solid;
     border-radius: 6px;
     font-size: 14px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     outline: none;
+}
+
+.link {
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
 }
 
 .input:focus {
@@ -138,7 +150,7 @@ const loginFunction = () => {
     border-radius: 6px;
     cursor: pointer;
     color: white;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     background-color: #1F883D;
 
 }

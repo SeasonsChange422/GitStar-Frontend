@@ -19,6 +19,26 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '//home': RouteRecordInfo<'//home', '/home', Record<never, never>, Record<never, never>>,
+    '//newPost': RouteRecordInfo<'//newPost', '/newPost', Record<never, never>, Record<never, never>>,
+    '//newProject': RouteRecordInfo<'//newProject', '/newProject', Record<never, never>, Record<never, never>>,
+    '//post': RouteRecordInfo<'//post', '/post', Record<never, never>, Record<never, never>>,
+    '//project': RouteRecordInfo<'//project', '/project', Record<never, never>, Record<never, never>>,
+    '//repository': RouteRecordInfo<'//repository', '/repository', Record<never, never>, Record<never, never>>,
+    '//search': RouteRecordInfo<'//search', '/search', Record<never, never>, Record<never, never>>,
+    '//task': RouteRecordInfo<'//task', '/task', Record<never, never>, Record<never, never>>,
+    '//user': RouteRecordInfo<'//user', '/user', Record<never, never>, Record<never, never>>,
+    '/admin': RouteRecordInfo<'/admin', '/admin', Record<never, never>, Record<never, never>>,
+    '/admin/feedback': RouteRecordInfo<'/admin/feedback', '/admin/feedback', Record<never, never>, Record<never, never>>,
+    '/admin/notice': RouteRecordInfo<'/admin/notice', '/admin/notice', Record<never, never>, Record<never, never>>,
+    '/admin/post': RouteRecordInfo<'/admin/post', '/admin/post', Record<never, never>, Record<never, never>>,
+    '/admin/project': RouteRecordInfo<'/admin/project', '/admin/project', Record<never, never>, Record<never, never>>,
+    '/admin/release': RouteRecordInfo<'/admin/release', '/admin/release', Record<never, never>, Record<never, never>>,
+    '/admin/repository': RouteRecordInfo<'/admin/repository', '/admin/repository', Record<never, never>, Record<never, never>>,
+    '/admin/tag': RouteRecordInfo<'/admin/tag', '/admin/tag', Record<never, never>, Record<never, never>>,
+    '/admin/user': RouteRecordInfo<'/admin/user', '/admin/user', Record<never, never>, Record<never, never>>,
+    '/filetest': RouteRecordInfo<'/filetest', '/filetest', Record<never, never>, Record<never, never>>,
     '/login': RouteRecordInfo<'/login', '/login', Record<never, never>, Record<never, never>>,
+    '/register': RouteRecordInfo<'/register', '/register', Record<never, never>, Record<never, never>>,
   }
 }

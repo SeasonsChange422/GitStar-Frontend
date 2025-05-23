@@ -28,4 +28,17 @@ type User = {
     nickName:String;
     avatar:String;
     description:String;
+    isAdmin:Boolean;
+    isBan:Boolean;
+}
+
+type Developer = {
+    id:String;
+    username:String;
+    password:String;
+    email:String;
+    nickName:String;
+    avatar:String;
+    description:String;
+    auth:String;
 }
