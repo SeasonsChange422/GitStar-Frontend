@@ -1,3 +1,9 @@
+/*
+ * @Author: Dhx
+ * @Date: 2025-01-08 16:01:27
+ * @Description: 
+ * @FilePath: \GitStar-Frontend\src\main.ts
+ */
 /**
  * main.ts
  *
@@ -6,6 +12,8 @@
 
 // Plugins
 import { registerPlugins } from '@/plugins'
+// import 'reset-css';
+import 'github-markdown-css/github-markdown.css';
 
 // Components
 import App from './App.vue'
